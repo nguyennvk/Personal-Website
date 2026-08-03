@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  PERSONAL SITE — index.html
+  All your text lives in this file. Edit it like a document.
+
+  Only thing left to check: the date ranges in the Experience
+  section, marked with "EDIT:".
+  ============================================================
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>Khoi Nguyen — Software &amp; Data Engineer, Toronto</title>
+<meta name="description" content="University of Toronto Computer Science and Applied Mathematics graduate building backend services, data platforms, AI applications, and performance-oriented systems." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="nav">
+  <div class="wrap nav-in">
+    <a class="mark" href="#top"><span class="tick"></span>KHOI</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#work">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- ========================= HERO ========================= -->
+<section class="hero wrap" id="top">
+  <div class="hero-grid">
+
+    <div>
+      <p class="role-line">New graduate &nbsp;·&nbsp; Backend &amp; Data Engineering &nbsp;·&nbsp; Toronto</p>
+
+      <h1 class="h-display hero-name">Khoi<br><span class="surname">Nguyen</span></h1>
+
+      <p class="lede">I'm a Computer Science Specialist and Applied Mathematics graduate from the
+      University of Toronto. I build reliable backend services, data platforms, and AI-powered
+      applications — from logistics lineage tooling and cloud pipelines to an interactive RISC-V
+      visualizer and a high-performance C++ limit order book simulator.</p>
+
+      <ul class="meta">
+        <li><b>B.Sc.</b> CS + Applied Math, UofT</li>
+        <li>GPA <b>3.83</b> · Math <b>3.98</b></li>
+        <li>Graduated <b>June 2026</b></li>
+        <li>Based in <b>Toronto</b></li>
+      </ul>
+
+      <div class="actions">
+        <a class="btn btn-primary" href="#projects">See the work</a>
+        <a class="btn" href="#contact">Get in touch</a>
+      </div>
+    </div>
+
+    <!--
+      Quick index of the projects below. Each row jumps to its card.
+      Keep this in sync when you add or remove a project.
+    -->
+    <nav class="index" aria-label="Project index">
+      <p class="index-head">Projects</p>
+      <a href="#p-instructli"><span class="n">Instructli Learning Platform</span><span class="t">RAG</span></a>
+      <a href="#p-tabi"><span class="n">Tabi Well-Being Marketplace</span><span class="t">Node.js</span></a>
+      <a href="#p-ghn"><span class="n">Data Quality at GHN</span><span class="t">Trino</span></a>
+      <a href="#p-agent"><span class="n">Agentic Browser Automation</span><span class="t">TypeScript</span></a>
+      <a href="#p-weather"><span class="n">Real-Time Weather Pipeline</span><span class="t">Airflow</span></a>
+      <a href="#p-microstructure"><span class="n">Market Microstructure Simulator</span><span class="t">C++</span></a>
+      <a href="#p-crypto"><span class="n">Algebraic Cryptography Toolkit</span><span class="t">Flask</span></a>
+    </nav>
+
+  </div>
+</section>
+
+<!-- ========================= ABOUT ========================= -->
+<section class="section" id="about">
+  <div class="wrap">
+    <p class="eyebrow">About</p>
+    <div class="about-grid">
+      <div>
+        <h2>I build systems that turn complex data into reliable products.</h2>
+
+        <p>At <b>GHN</b>, one of Vietnam's largest logistics companies, I worked on the data
+        platform behind high-volume delivery operations. I automated lineage analysis across
+        1,300+ warehouse tables and 200 Airflow DAGs, synchronized Trino access controls into
+        DataHub, and improved production ETL performance by 20% through query optimization,
+        parallelization, and partition pruning. I also added statistical quality checks over
+        30,000+ records per run to catch data issues before they reached downstream teams.</p>
+
+        <p>My product work spans both backend and frontend engineering. I built <b>Instructli</b>,
+        a RAG-powered learning platform used by 200+ students, with streamed, source-grounded
+        answers and an automated quiz pipeline reaching over 90% answer accuracy. I also developed
+        an interactive <b>RISC-V pipeline visualizer</b> using React/Next.js and Django, transforming
+        execution traces into structured JSON and visualizing hazards, datapath activity, and
+        performance metrics across multiple instruction types.</p>
+
+        <p>Outside traditional web applications, I enjoy performance-oriented and agentic systems.
+        I implemented a C++ limit order book simulator calibrated to real market data and a
+        Gemini-driven browser automation agent with scheduled runs, persistent progress, and
+        execution logs. I'm looking for a backend, data engineering, or software engineering team
+        where I can contribute across the stack while continuing to deepen my systems knowledge.</p>
+      </div>
+
+      <dl class="facts">
+        <div><dt>Location</dt><dd>Toronto, Canada</dd></div>
+        <div><dt>Status</dt><dd>Open to full-time roles</dd></div>
+        <div><dt>Degree</dt><dd>CS Specialist + Applied Math</dd></div>
+        <div><dt>Graduated</dt><dd>June 2026</dd></div>
+        <div><dt>Cumulative GPA</dt><dd>3.83</dd></div>
+        <div><dt>Mathematics GPA</dt><dd>3.98</dd></div>
+        <div><dt>Core languages</dt><dd>Python, SQL, C++, TypeScript</dd></div>
+        <div class="learning"><dt>Strengthening</dt><dd>Spark, dbt, Kubernetes</dd></div>
+        <div><dt>Open to</dt><dd>Backend · Data · Full-stack · Quant Dev</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= PROJECTS =========================
+     TO ADD A PROJECT: copy any <article class="card"> block below,
+     paste it, change the text. The data-tags attribute controls
+     which filter buttons show it. Use one or more of:
+       data · quant · ai · web
+     A blank template is commented out at the end of the list.
+     If you add a card, add a matching row to the hero index too.
+============================================================== -->
+<section class="section" id="projects">
+  <div class="wrap">
+    <p class="eyebrow">Selected projects</p>
+    <h2>Things I built, and what they measured.</h2>
+
+    <div class="filters" role="group" aria-label="Filter projects by area">
+      <button class="filter" data-filter="all" aria-pressed="true">All</button>
+      <button class="filter" data-filter="data" aria-pressed="false">Data engineering</button>
+      <button class="filter" data-filter="quant" aria-pressed="false">Quant &amp; systems</button>
+      <button class="filter" data-filter="ai" aria-pressed="false">AI &amp; LLM</button>
+      <button class="filter" data-filter="web" aria-pressed="false">Full-stack</button>
+    </div>
+
+    <div class="cards" id="cards">
+
+      <article class="card" id="p-instructli" data-tags="ai web">
+        <div class="card-top">
+          <h3>Instructli — AI Tutoring Platform</h3>
+          <span class="kind">UofT Innovation Grant</span>
+        </div>
+        <p>A full-stack learning platform used by 200+ students. It retrieves relevant course
+        context with RAG, streams source-grounded answers in real time, and supports automated quiz
+        generation with an answer-checking pipeline that achieved over 90% accuracy.</p>
+        <dl class="metrics">
+          <div><dt>Users</dt><dd>200+ students</dd></div>
+          <div><dt>Answer accuracy</dt><dd>&gt;90%</dd></div>
+          <div><dt>Retrieval</dt><dd>cited RAG responses</dd></div>
+          <div><dt>Delivery</dt><dd>real-time streaming</dd></div>
+        </dl>
+        <ul class="chips"><li>TypeScript</li><li>Next.js</li><li>React</li><li>Django</li><li>Python</li><li>OpenAI</li><li>Embeddings</li><li>Vector DB</li><li>RAG</li><li>Streaming</li></ul>
+      </article>
+      
+      <article class="card" id="p-tabi" data-tags="web">
+        <div class="card-top">
+          <h3>Tabi Well-Being Marketplace</h3>
+          <span class="kind">Client project · Node.js</span>
+        </div>
+        <p>Designed and built a two-sided marketplace for well-being providers and customers. I
+        modeled the Firestore data, implemented account registration and role-based user flows,
+        handled provider listings and booking lifecycles, and integrated Stripe checkout and
+        webhooks through a Node.js service layer.</p>
+        <dl class="metrics">
+          <div><dt>User roles</dt><dd>customers + providers</dd></div>
+          <div><dt>Core workflows</dt><dd>accounts · listings · bookings</dd></div>
+          <div><dt>Payments</dt><dd>Stripe checkout + webhooks</dd></div>
+          <div><dt>Data layer</dt><dd>Firestore data model</dd></div>
+        </dl>
+        <ul class="chips"><li>JavaScript</li><li>Node.js</li><li>Express</li><li>Firebase Auth</li><li>Firestore</li><li>Cloud Functions</li><li>Stripe</li><li>Webhooks</li><li>REST API</li></ul>
+      </article>
+
+      <article class="card" id="p-riscv" data-tags="web quant">
+        <div class="card-top">
+          <h3>RISC-V Pipeline &amp; Datapath Visualizer</h3>
+          <span class="kind">React · Django</span>
+        </div>
+        <p>An interactive processor visualization platform with a React/Next.js frontend and a
+        Python/Django REST API. The backend transforms execution traces into structured JSON while
+        the UI renders datapath activity, hazards, and performance metrics across five instruction
+        types and traces containing 1,000+ instructions.</p>
+        <dl class="metrics">
+          <div><dt>Instruction types</dt><dd>5</dd></div>
+          <div><dt>Trace capacity</dt><dd>1,000+ instructions</dd></div>
+          <div><dt>Visualized</dt><dd>datapath · hazards</dd></div>
+          <div><dt>Interface</dt><dd>REST API → structured JSON</dd></div>
+        </dl>
+        <ul class="chips"><li>React</li><li>Next.js</li><li>JavaScript</li><li>Python</li><li>Django</li><li>REST API</li><li>JSON</li><li>RISC-V</li><li>Computer Architecture</li></ul>
+      </article>
+
+      <article class="card" id="p-weather" data-tags="data">
+        <div class="card-top">
+          <h3>Multi-Source Weather Data Pipeline</h3>
+          <span class="kind">Cloud data platform</span>
+        </div>
+        <p>An end-to-end pipeline orchestrated with Airflow that ingests weather data from Visual
+        Crossing, Environment and Climate Change Canada, and Open-Meteo. Raw payloads land in S3,
+        modeled data is loaded into Redshift, Great Expectations checks enforce quality, and
+        OpenMetadata records schemas and lineage.</p>
+        <dl class="metrics">
+          <div><dt>Sources</dt><dd>3 weather APIs</dd></div>
+          <div><dt>Flow</dt><dd>Airflow → S3 → Redshift</dd></div>
+          <div><dt>Quality</dt><dd>Great Expectations</dd></div>
+          <div><dt>Catalog</dt><dd>OpenMetadata</dd></div>
+        </dl>
+        <ul class="chips"><li>Python</li><li>Apache Airflow</li><li>AWS S3</li><li>Amazon Redshift</li><li>Great Expectations</li><li>OpenMetadata</li><li>SQL</li><li>REST APIs</li><li>Docker</li></ul>
+      </article>
+
+      <article class="card" id="p-ghn" data-tags="data">
+        <div class="card-top">
+          <h3>Data Platform Engineering at GHN</h3>
+          <span class="kind">Data Engineering Internship</span>
+        </div>
+        <p>Built warehouse tooling for lineage, data quality, and access governance. The work
+        included graph-based impact analysis across Airflow and SQL assets, a Trino-to-DataHub
+        permission sync, production ETL optimization, and statistical anomaly checks on logistics
+        data.</p>
+        <dl class="metrics">
+          <div><dt>Lineage coverage</dt><dd>1,300+ tables · 200 DAGs</dd></div>
+          <div><dt>ETL latency</dt><dd>−20%</dd></div>
+          <div><dt>Quality volume</dt><dd>30K+ rows / run</dd></div>
+          <div><dt>Manual effort saved</dt><dd>~150 hours / year</dd></div>
+        </dl>
+        <ul class="chips"><li>Python</li><li>SQL</li><li>PySpark</li><li>Apache Airflow</li><li>Trino</li><li>DataHub</li><li>REST API</li><li>Graph Traversal</li><li>Data Quality</li><li>Git</li></ul>
+      </article>
+
+      <article class="card" id="p-microstructure" data-tags="quant data">
+        <div class="card-top">
+          <h3>Market Microstructure Simulator</h3>
+          <span class="kind">C++ · Python</span>
+        </div>
+        <p>A limit order book matching engine with price-time priority, driven by four agent types —
+        noise, informed, momentum, and an Avellaneda-Stoikov market maker. Order arrivals are
+        calibrated with a Hawkes process and validated against real LOBSTER AMZN message data.</p>
+        <dl class="metrics">
+          <div><dt>Cancel throughput</dt><dd>1.5M / sec</dd></div>
+          <div><dt>Inventory variance vs. naive MM</dt><dd>844× lower</dd></div>
+          <div><dt>Estimators</dt><dd>Kyle · Roll · Huang-Stoll · Amihud</dd></div>
+        </dl>
+        <ul class="chips"><li>C++17</li><li>CMake</li><li>Python</li><li>NumPy</li><li>SciPy</li><li>pandas</li><li>Matplotlib</li><li>Hawkes processes</li><li>LOBSTER</li></ul>
+      </article>
+
+      <article class="card" id="p-agent" data-tags="ai web">
+        <div class="card-top">
+          <h3>Agentic Browser Automation Framework</h3>
+          <span class="kind">TypeScript · Gemini</span>
+        </div>
+        <p>A form automation system that uses Gemini and Playwright to observe live pages, plan
+        multi-step actions, execute them, and verify outcomes in a closed loop. It supports
+        scheduled runs, persistent progress across sessions, reusable person data, and structured
+        success/failure logging for debugging agent behavior.</p>
+        <dl class="metrics">
+          <div><dt>Loop</dt><dd>observe → plan → act → verify</dd></div>
+          <div><dt>Scheduling</dt><dd>recurring background runs</dd></div>
+          <div><dt>Persistence</dt><dd>progress + form snapshots</dd></div>
+          <div><dt>Observability</dt><dd>success / failure logs</dd></div>
+        </dl>
+        <ul class="chips"><li>TypeScript</li><li>Node.js</li><li>Playwright</li><li>Google Gemini</li><li>Vercel AI SDK</li><li>Zod</li><li>JSON Schema</li><li>Chromium</li><li>Docker</li></ul>
+      </article>
+
+      <article class="card" id="p-crypto" data-tags="quant web">
+        <div class="card-top">
+          <h3>Algebraic Cryptography Toolkit</h3>
+          <span class="kind">Flask · JavaScript · AWS</span>
+        </div>
+        <p>An interactive cryptography learning tool used by 20+ students, combining a JavaScript
+        frontend with a Python/Flask backend for modular arithmetic, group operations, and public-key
+        cryptography exercises. I optimized the core algorithms to reduce runtime by 80% and deployed
+        the application to AWS through a tested CI/CD workflow.</p>
+        <dl class="metrics">
+          <div><dt>Users</dt><dd>20+ students</dd></div>
+          <div><dt>Runtime improvement</dt><dd>−80%</dd></div>
+          <div><dt>Deployment</dt><dd>AWS EC2 + S3</dd></div>
+          <div><dt>Delivery</dt><dd>CI/CD + automated tests</dd></div>
+        </dl>
+        <ul class="chips"><li>Python</li><li>Flask</li><li>JavaScript</li><li>Jinja2</li><li>SymPy</li><li>AWS EC2</li><li>AWS S3</li><li>CI/CD</li><li>HTML/CSS</li></ul>
+      </article>
+
+      <!-- ===== BLANK TEMPLATE — copy, uncomment, fill in =====
+      <article class="card" id="p-newthing" data-tags="data">
+        <div class="card-top">
+          <h3>Project name</h3>
+          <span class="kind">Stack or context</span>
+        </div>
+        <p>Two or three sentences. What it does, and what was hard about it.</p>
+        <dl class="metrics">
+          <div><dt>Label</dt><dd>Number</dd></div>
+          <div><dt>Label</dt><dd>Number</dd></div>
+        </dl>
+        <ul class="chips"><li>Tech</li><li>Tech</li></ul>
+      </article>
+      ====================================================== -->
+
+    </div>
+  </div>
+</section>
+
+<!-- ========================= EXPERIENCE ========================= -->
+<section class="section" id="work">
+  <div class="wrap">
+    <p class="eyebrow">Experience</p>
+    <h2>Where I've worked.</h2>
+
+    <div class="exp">
+
+      <article class="job">
+        <div class="job-when">May – Aug 2025</div>
+        <div>
+          <h3>Data Engineering Intern</h3>
+          <p class="org">GHN — Giao Hàng Nhanh, Vietnam</p>
+          <ul>
+            <li>Automated SQL lineage and impact analysis across 1,300+ warehouse tables and 200
+            Airflow DAGs using graph traversal, reducing downstream investigation time by 60%.</li>
+            <li>Built a weekly Airflow workflow that synchronized Trino table permissions into
+            DataHub through REST APIs, making access ownership visible across 7 teams and saving
+            approximately 150 hours of manual lookup work per year.</li>
+            <li>Migrated and optimized production data transformations with PySpark, SQL query
+            rewriting, parallelization, and partition pruning, reducing pipeline latency by 20%.</li>
+            <li>Implemented z-score and IQR anomaly detection for automated data-quality checks over
+            30,000+ logistics records per run.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="job">
+        <div class="job-when">2025 – 2026</div>
+        <div>
+          <h3>Full-Stack Developer, Instructli</h3>
+          <p class="org">University of Toronto Innovation Grant</p>
+          <ul>
+            <li>Developed full-stack features for a TypeScript educational platform used by 200+ students,
+               connecting responsive React/Next.js interfaces with Python/Django backend services.</li>
+            <li>Designed a Django REST API that transformed processor execution traces into structured JSON,
+               powering an interactive frontend visualizer for five instruction types across 1,000+ executions.</li>
+            <li>Integrated a RAG-powered OpenAI assistant with automated quiz generation and answer checking,
+               achieving over 90% accuracy across 50 manually evaluated outputs.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="job">
+        <div class="job-when">2023 – 2026</div>
+        <div>
+          <h3>Undergraduate Teaching Assistant</h3>
+          <p class="org">University of Toronto — Mathematics</p>
+          <ul>
+            <li>Led tutorials, office hours, and assessments for computer science and math courses including
+              CSC263 (Data Structure and Algorithms), CSC236, CSC258, MAT302, MAT223, MAT135, MAT136, and MAT232.</li>
+            <li>Collaborated with professors and other TAs to generate review materials and evaluation.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="job">
+        <div class="job-when">2022 – 2026</div>
+        <div>
+          <h3>B.Sc. Computer Science Specialist &amp; Applied Mathematics</h3>
+          <p class="org">University of Toronto</p>
+          <ul>
+            <li>Cumulative GPA 3.83 · Mathematics GPA 3.99 · Dean's List.</li>
+            <li>Coursework and projects in databases, system design, computer engineer, 
+            architecture, probability, machine learning, deep learning, stochastic processes,
+            numerical methods, and optimization.</li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========================= CONTACT ========================= -->
+<section class="section contact" id="contact">
+  <div class="wrap">
+    <p class="eyebrow">Contact</p>
+    <h2>Open to new-grad software and data roles in Canada.</h2>
+    <p class="lede narrow">I'm especially interested in backend, data engineering, and
+    full-stack roles where I can work on reliable systems, production data, and user-facing
+    technical products.</p>
+
+    <div class="contact-grid">
+      <a class="contact-cell" href="mailto:khoinguyen29012004.ca@gmail.com">
+        <span class="k">Email</span><span class="v">khoinguyen29012004.ca@gmail.com</span>
+      </a>
+      <a class="contact-cell" href="https://github.com/nguyennvk">
+        <span class="k">GitHub</span><span class="v">github.com/nguyennvk</span>
+      </a>
+      <a class="contact-cell" href="https://www.linkedin.com/in/khoi-nguyen-nguyen-vo/">
+        <span class="k">LinkedIn</span><span class="v">linkedin.com/in/khoi-nguyen-nguyen-vo</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <span>© <span id="yr">2026</span> Khoi Nguyen</span>
+    <span>Toronto, ON · Built from scratch</span>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
