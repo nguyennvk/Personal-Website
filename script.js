@@ -128,24 +128,29 @@
     setTimeout(() => { label.textContent = 'Copy email'; status.textContent = ''; }, 2000);
   });
 
-  // Case-study tabs (WAI-ARIA tabs pattern)
-  const tabs = [...document.querySelectorAll('[role="tab"]')];
+  // Tabs (WAI-ARIA pattern) — each [role=tablist] is an independent group,
+  // so the case-study tabs and the KinMeet feature sub-tabs don't interfere.
+  const groupOf = (tab) => [...tab.closest('[role="tablist"]').querySelectorAll(':scope > [role="tab"]')];
   const selectTab = (tab, focus = true) => {
-    tabs.forEach((t) => {
+    groupOf(tab).forEach((t) => {
       const on = t === tab;
       t.setAttribute('aria-selected', String(on));
       t.tabIndex = on ? 0 : -1;
       document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
     });
     if (focus) tab.focus();
+    if (tab.classList.contains('subtab')) tab.scrollIntoView({ block: 'nearest', inline: 'nearest' });
   };
-  tabs.forEach((tab, i) => {
-    tab.addEventListener('click', () => selectTab(tab, false));
-    tab.addEventListener('keydown', (e) => {
-      const keys = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 };
-      if (e.key in keys) { e.preventDefault(); selectTab(tabs[(i + keys[e.key] + tabs.length) % tabs.length]); }
-      else if (e.key === 'Home') { e.preventDefault(); selectTab(tabs[0]); }
-      else if (e.key === 'End') { e.preventDefault(); selectTab(tabs[tabs.length - 1]); }
+  document.querySelectorAll('[role="tablist"]').forEach((list) => {
+    const group = [...list.querySelectorAll(':scope > [role="tab"]')];
+    group.forEach((tab, i) => {
+      tab.addEventListener('click', () => selectTab(tab, false));
+      tab.addEventListener('keydown', (e) => {
+        const keys = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 };
+        if (e.key in keys) { e.preventDefault(); selectTab(group[(i + keys[e.key] + group.length) % group.length]); }
+        else if (e.key === 'Home') { e.preventDefault(); selectTab(group[0]); }
+        else if (e.key === 'End') { e.preventDefault(); selectTab(group[group.length - 1]); }
+      });
     });
   });
 
@@ -156,7 +161,11 @@
   const contactAddr = copyBtn?.dataset.email || '';
   const goTo = (id) => () => document.getElementById(id)?.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
   const openUrl = (url) => () => window.open(url, '_blank', 'noopener');
-  const showCase = (tabId) => () => { selectTab(document.getElementById(tabId), false); goTo('deep-dives')(); };
+  const showCase = (tabId, subId) => () => {
+    selectTab(document.getElementById(tabId), false);
+    if (subId) selectTab(document.getElementById(subId), false);
+    goTo('deep-dives')();
+  };
   const commands = [
     { group: 'Sections', label: 'About', icon: 'i-hash', run: goTo('about') },
     { group: 'Sections', label: 'Experience', icon: 'i-hash', run: goTo('experience') },
@@ -165,7 +174,11 @@
     { group: 'Sections', label: 'Skills', icon: 'i-hash', run: goTo('skills') },
     { group: 'Sections', label: 'Education', icon: 'i-hash', run: goTo('education') },
     { group: 'Sections', label: 'Contact', icon: 'i-hash', run: goTo('contact') },
-    { group: 'Case studies', label: 'KinMeet — image & voice messaging', icon: 'i-code', run: showCase('tab-media') },
+    { group: 'Case studies', label: 'KinMeet — full-stack social app', icon: 'i-code', run: showCase('tab-media') },
+    { group: 'Case studies', label: 'KinMeet — image & voice messaging', icon: 'i-code', run: showCase('tab-media', 'st-media') },
+    { group: 'Case studies', label: 'KinMeet — accounts & session revocation', icon: 'i-code', run: showCase('tab-media', 'st-session') },
+    { group: 'Case studies', label: 'KinMeet — blocking & reporting', icon: 'i-code', run: showCase('tab-media', 'st-safety') },
+    { group: 'Case studies', label: 'KinMeet — mobile onboarding & Discover', icon: 'i-phone', run: showCase('tab-media', 'st-mobile') },
     { group: 'Case studies', label: 'Instructli — RISC-V simulator', icon: 'i-cpu', run: showCase('tab-sim') },
     { group: 'Case studies', label: 'GHN — data quality & lineage', icon: 'i-db', run: showCase('tab-dq') },
     { group: 'Links', label: 'GitHub', hint: 'nguyennvk', icon: 'i-github', run: openUrl('https://github.com/nguyennvk') },

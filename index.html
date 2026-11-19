@@ -256,11 +256,11 @@
         <p class="section-num">03</p>
         <h2 id="deep-title">Deep dives</h2>
       </header>
-      <p class="section-intro">How three pieces of my work are built: the problem, the architecture, and the trade-offs.</p>
+      <p class="section-intro">How my work is built: the problems, the architecture, and the trade-offs.</p>
 
       <div class="tabs" role="tablist" aria-label="Case studies">
         <button class="tab" role="tab" id="tab-media" aria-controls="panel-media" aria-selected="true" tabindex="0">
-          <span class="tab-co">KinMeet</span><span class="tab-name">Image &amp; voice messaging</span>
+          <span class="tab-co">KinMeet</span><span class="tab-name">Full-stack social app</span>
         </button>
         <button class="tab" role="tab" id="tab-sim" aria-controls="panel-sim" aria-selected="false" tabindex="-1">
           <span class="tab-co">Instructli</span><span class="tab-name">RISC-V simulator in the browser</span>
@@ -271,26 +271,126 @@
       </div>
 
       <div class="tab-panel" role="tabpanel" id="panel-media" aria-labelledby="tab-media" tabindex="0">
-        <div class="case-grid">
-          <div class="case-text">
-            <h3>The problem</h3>
-            <p>Users could only send text. Adding photos and voice notes meant handling large, slow uploads on mobile networks, without turning our Node server into a media proxy and without trusting whatever metadata the client sent.</p>
-            <h3>Key decisions</h3>
-            <ul class="decisions">
-              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Direct-to-cloud uploads.</strong> Clients upload straight to Cloudinary with server-signed parameters, so full files never pass through our API.</span></li>
-              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Verify, don't trust.</strong> The backend checks the upload receipt before it creates a message, so a client can't attach arbitrary URLs.</span></li>
-              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Designed for failure.</strong> Upload progress, error states, and retry make slow or dropped connections recoverable.</span></li>
-            </ul>
-            <p class="case-outcome"><span class="metric">76 tests</span> across backend and frontend · I proposed, built, and shipped it end to end</p>
+        <div class="overview">
+          <div class="overview-text">
+            <h3>KinMeet connects people living abroad with others from their home country.</h3>
+            <p>I work across the whole product: the React web app, the React Native / Expo mobile app, and the Node/Express + MongoDB API behind both. I shipped features from proposal to production in each layer.</p>
           </div>
-          <ol class="flow" aria-label="Upload flow">
-            <li><span class="flow-step">1</span><div><h4>Capture</h4><p>Pick and compress an image, or record a voice note with a live waveform</p></div><span class="flow-tag">React / RN</span></li>
-            <li><span class="flow-step">2</span><div><h4>Sign</h4><p>An authenticated request gets signed upload parameters</p></div><span class="flow-tag">Express</span></li>
-            <li><span class="flow-step">3</span><div><h4>Upload</h4><p>The client uploads directly to the cloud, showing progress and retrying on failure</p></div><span class="flow-tag">Cloudinary</span></li>
-            <li><span class="flow-step">4</span><div><h4>Verify</h4><p>The server validates the upload receipt before it accepts the message</p></div><span class="flow-tag">Express</span></li>
-            <li><span class="flow-step">5</span><div><h4>Deliver</h4><p>The message is saved and pushed to the recipient in real time</p></div><span class="flow-tag">MongoDB · Socket.IO</span></li>
-          </ol>
+          <ul class="overview-stats" aria-label="KinMeet highlights">
+            <li><strong>76</strong><span>automated tests on media messaging</span></li>
+            <li><strong>9</strong><span>API routers with session enforcement</span></li>
+            <li><strong>51</strong><span>files in the account-lifecycle change set</span></li>
+            <li><strong>~150k</strong><span>cities in mobile location search</span></li>
+          </ul>
         </div>
+
+        <div class="arch" aria-label="KinMeet architecture">
+          <div class="arch-col"><p class="arch-label">Clients</p><ul class="tags"><li>React web</li><li>React Native · Expo</li></ul></div>
+          <svg class="icon arch-arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+          <div class="arch-col"><p class="arch-label">API</p><ul class="tags"><li>Express REST</li><li>Socket.IO</li><li>JWT auth</li></ul></div>
+          <svg class="icon arch-arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+          <div class="arch-col"><p class="arch-label">Data &amp; media</p><ul class="tags"><li>MongoDB · Mongoose</li><li>Cloudinary</li></ul></div>
+          <div class="arch-col arch-test"><p class="arch-label">Testing</p><ul class="tags"><li>Vitest</li><li>Playwright</li><li>Jest</li><li>RNTL</li></ul></div>
+        </div>
+
+        <div class="subtabs" role="tablist" aria-label="KinMeet features">
+          <button class="subtab" role="tab" id="st-media" aria-controls="sp-media" aria-selected="true" tabindex="0">Image &amp; voice messaging</button>
+          <button class="subtab" role="tab" id="st-session" aria-controls="sp-session" aria-selected="false" tabindex="-1">Accounts &amp; sessions</button>
+          <button class="subtab" role="tab" id="st-safety" aria-controls="sp-safety" aria-selected="false" tabindex="-1">Blocking &amp; reporting</button>
+          <button class="subtab" role="tab" id="st-mobile" aria-controls="sp-mobile" aria-selected="false" tabindex="-1">Mobile onboarding &amp; Discover</button>
+        </div>
+
+          <div class="subpanel" role="tabpanel" id="sp-media" aria-labelledby="st-media" tabindex="0">
+            <div class="case-grid">
+              <div class="case-text">
+                <h3>The problem</h3>
+                <p>Users could only send text. Adding photos and voice notes meant handling large, slow uploads on mobile networks, without turning our Node server into a media proxy and without trusting whatever metadata the client sent.</p>
+                <h3>Key decisions</h3>
+                <ul class="decisions">
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Direct-to-cloud uploads.</strong> Clients upload straight to Cloudinary with server-signed parameters, so full files never pass through our API.</span></li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Verify, don't trust.</strong> The backend checks the upload receipt before it creates a message, so a client can't attach arbitrary URLs.</span></li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Designed for failure.</strong> Upload progress, error states, and retry make slow or dropped connections recoverable.</span></li>
+                </ul>
+                <p class="case-outcome"><span class="metric">76 tests</span> across backend and frontend · I proposed, built, and shipped it end to end</p>
+              </div>
+              <ol class="flow" aria-label="Media upload flow">
+                <li><span class="flow-step">1</span><div><h4>Capture</h4><p>Pick and compress an image, or record a voice note with a live waveform</p></div><span class="flow-tag">React / RN</span></li>
+                <li><span class="flow-step">2</span><div><h4>Sign</h4><p>An authenticated request gets signed upload parameters</p></div><span class="flow-tag">Express</span></li>
+                <li><span class="flow-step">3</span><div><h4>Upload</h4><p>The client uploads directly to the cloud, showing progress and retrying on failure</p></div><span class="flow-tag">Cloudinary</span></li>
+                <li><span class="flow-step">4</span><div><h4>Verify</h4><p>The server validates the upload receipt before it accepts the message</p></div><span class="flow-tag">Express</span></li>
+                <li><span class="flow-step">5</span><div><h4>Deliver</h4><p>The message is saved and pushed to the recipient in real time</p></div><span class="flow-tag">MongoDB · Socket.IO</span></li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="subpanel" role="tabpanel" id="sp-session" aria-labelledby="st-session" tabindex="0" hidden>
+            <div class="case-grid">
+              <div class="case-text">
+                <h3>The problem</h3>
+                <p>Users needed to be able to deactivate and later reactivate their accounts. But JWTs are stateless: a token issued before deactivation would keep working until it expired, leaving a &ldquo;deactivated&rdquo; account still able to call the API.</p>
+                <h3>Key decisions</h3>
+                <ul class="decisions">
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Versioned tokens.</strong> Each user has a <code>tokenVersion</code> that is embedded in their JWT. Changing the account's state bumps the version, which instantly invalidates every existing session on every device.</span></li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Enforced on the server.</strong> Auth middleware rejects tokens with an old version or from deactivated accounts. That check is wired into all 9 API routers, not just hidden in the UI.</span></li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Clear account states.</strong> The frontend explains what deactivation means and guides users through reactivating.</span></li>
+                </ul>
+                <p class="case-outcome"><span class="metric">51 files</span> <span class="metric">8 new modules</span> <span class="metric">9 API routers</span></p>
+              </div>
+              <ol class="flow" aria-label="Session revocation flow">
+                <li><span class="flow-step">1</span><div><h4>Deactivate</h4><p>The user deactivates from settings; the API updates the account status</p></div><span class="flow-tag">React · Express</span></li>
+                <li><span class="flow-step">2</span><div><h4>Revoke</h4><p><code>tokenVersion</code> is incremented, so every JWT issued earlier is now stale</p></div><span class="flow-tag">MongoDB</span></li>
+                <li><span class="flow-step">3</span><div><h4>Enforce</h4><p>Middleware compares the token&rsquo;s version and account state on every protected route</p></div><span class="flow-tag">JWT middleware</span></li>
+                <li><span class="flow-step">4</span><div><h4>Reject</h4><p>Stale or deactivated sessions get <code>401</code> and are signed out</p></div><span class="flow-tag">9 routers</span></li>
+                <li><span class="flow-step">5</span><div><h4>Reactivate</h4><p>The user signs back in through the reactivation flow and receives a fresh token</p></div><span class="flow-tag">React · Express</span></li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="subpanel" role="tabpanel" id="sp-safety" aria-labelledby="st-safety" tabindex="0" hidden>
+            <div class="case-grid">
+              <div class="case-text">
+                <h3>The problem</h3>
+                <p>On a social app, people need to be able to shut down unwanted contact. Hiding a blocked user in the UI isn't enough: if the API still serves them, a blocked person can still find you, match with you, or message you.</p>
+                <h3>Key decisions</h3>
+                <ul class="decisions">
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Model it in the database.</strong> Blocks and reports are their own MongoDB models, so relationships can be checked efficiently anywhere.</span></li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Enforce everywhere.</strong> Every surface checks the block relationship on the server: discovery, matching and connections, and messaging permissions.</span></li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Complete UX.</strong> Block and report dialogs, a Blocked Accounts privacy page with unblock, validation, feedback, and empty states.</span></li>
+                </ul>
+                <p class="case-outcome">Express APIs, MongoDB models, and React UI, tested end to end</p>
+              </div>
+              <ol class="flow" aria-label="Blocking flow">
+                <li><span class="flow-step">1</span><div><h4>Report or block</h4><p>The user opens the dialog from a profile or a chat</p></div><span class="flow-tag">React / RN</span></li>
+                <li><span class="flow-step">2</span><div><h4>Persist</h4><p>The block/report API validates the request and stores the relationship</p></div><span class="flow-tag">Express · MongoDB</span></li>
+                <li><span class="flow-step">3</span><div><h4>Hide</h4><p>Discovery and matching exclude blocked users from results</p></div><span class="flow-tag">Discovery API</span></li>
+                <li><span class="flow-step">4</span><div><h4>Deny</h4><p>Messaging permission checks reject any conversation with a blocked user</p></div><span class="flow-tag">Messaging API</span></li>
+                <li><span class="flow-step">5</span><div><h4>Undo</h4><p>The Blocked Accounts page lists blocks and lets the user unblock</p></div><span class="flow-tag">React</span></li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="subpanel" role="tabpanel" id="sp-mobile" aria-labelledby="st-mobile" tabindex="0" hidden>
+            <div class="case-grid">
+              <div class="case-text">
+                <h3>The problem</h3>
+                <p>The iOS/Android app needed a sign-up flow that collects a lot (account, profile, photo, location) without overwhelming people, plus a fast way to browse potential connections.</p>
+                <h3>Key decisions</h3>
+                <ul class="decisions">
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Four-step registration.</strong> Multi-step form state with per-field validation and error states, plus live username and email availability checks (case-insensitive uniqueness).</span></li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Location that stays valid.</strong> A country-first search over <strong>~150k cities</strong>, checking that the chosen city matches its province or state (Toronto ↔ Ontario).</span></li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Swipe-style Discover.</strong> Profile cards with <em>Pass</em> and <em>Meet</em>, automatic loading of the next batch, and built-in report and block flows.</span></li>
+                </ul>
+                <p class="case-outcome"><span class="metric">~150k cities</span> Reusable components: searchable sheets, password field, date-of-birth picker, city search</p>
+              </div>
+              <ol class="flow" aria-label="Onboarding flow">
+                <li><span class="flow-step">1</span><div><h4>Account</h4><p>Username and email are checked live as the user types</p></div><span class="flow-tag">RN · Express</span></li>
+                <li><span class="flow-step">2</span><div><h4>Profile</h4><p>Name, date of birth, and password with show/hide, validated as you go</p></div><span class="flow-tag">React Native</span></li>
+                <li><span class="flow-step">3</span><div><h4>Photo</h4><p>Pick an image from the device and upload it</p></div><span class="flow-tag">Expo · Cloudinary</span></li>
+                <li><span class="flow-step">4</span><div><h4>Location</h4><p>Choose a country, then search its cities; the city/province pair is validated</p></div><span class="flow-tag">~150k cities</span></li>
+                <li><span class="flow-step">5</span><div><h4>Discover</h4><p>Swipe through profile cards; the next batch loads automatically</p></div><span class="flow-tag">React Native</span></li>
+              </ol>
+            </div>
+          </div>
       </div>
 
       <div class="tab-panel" role="tabpanel" id="panel-sim" aria-labelledby="tab-sim" tabindex="0" hidden>
