@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Khoi Nguyen — Software Engineer</title>
+  <meta name="description" content="Khoi Nguyen — full-stack and data engineer in Toronto. React, React Native, Node.js, Django, Airflow, and cloud data pipelines." />
+  <meta name="theme-color" content="#0F172A" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- SVG icon sprite -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></g></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></g></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></g></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></g></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></g></symbol>
+    <symbol id="i-db" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></g></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></g></symbol>
+    <symbol id="i-cpu" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></g></symbol>
+    <symbol id="i-brain" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M12 5v13"/></g></symbol>
+    <symbol id="i-cloud" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-cap" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></g></symbol>
+  </svg>
+
+  <header class="site-header" id="top">
+    <nav class="nav container" aria-label="Primary">
+      <a href="#hero" class="brand" aria-label="Khoi Nguyen — home">
+        <span class="brand-mark">KN</span><span class="brand-cursor" aria-hidden="true">_</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="scroll-progress" aria-hidden="true"></div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero container" id="hero" aria-labelledby="hero-title">
+      <div class="hero-text">
+        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Toronto, ON · Open to software engineering roles</p>
+        <h1 id="hero-title">Hi, I'm <span class="accent">Khoi Nguyen</span>.<br />I build full-stack products and the data pipelines behind them.</h1>
+        <p class="lede">I'm a full-stack and data engineer who finished a Computer Science Specialist and Applied Mathematics degree at the University of Toronto. Right now I'm shipping React Native and Node.js features for healthcare and social apps. Before that, I built data quality tooling at production scale.</p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">View my work <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a href="#contact" class="btn btn-ghost">Get in touch</a>
+        </div>
+        <ul class="social" aria-label="Profiles">
+          <li><a href="https://github.com/nguyennvk" target="_blank" rel="noopener" aria-label="GitHub"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg></a></li>
+          <li><a href="https://www.linkedin.com/in/khoi-nguyen-nguyen-vo" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg></a></li>
+          <li><a href="mailto:khoinguyen29012004.ca@gmail.com" aria-label="Email"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg></a></li>
+        </ul>
+      </div>
+
+      <div class="terminal" aria-hidden="true">
+        <div class="terminal-bar"><span></span><span></span><span></span><p>~/khoi — zsh</p></div>
+        <pre class="terminal-body"><code><span class="t-prompt">$</span> whoami
+<span class="t-out">khoi-nguyen · software engineer</span>
+<span class="t-prompt">$</span> cat stack.json
+<span class="t-out">{
+  <span class="t-key">"web"</span>:    [<span class="t-str">"React"</span>, <span class="t-str">"Next.js"</span>, <span class="t-str">"TypeScript"</span>],
+  <span class="t-key">"mobile"</span>: [<span class="t-str">"React Native"</span>, <span class="t-str">"Expo"</span>],
+  <span class="t-key">"api"</span>:    [<span class="t-str">"Node/Express"</span>, <span class="t-str">"Django"</span>],
+  <span class="t-key">"data"</span>:   [<span class="t-str">"Airflow"</span>, <span class="t-str">"PySpark"</span>, <span class="t-str">"SQL"</span>]
+}</span>
+<span class="t-prompt">$</span> npm test <span class="t-dim">-- media-messaging</span>
+<span class="t-ok">✓ 76 passed</span> <span class="t-dim">(backend + frontend)</span>
+<span class="t-prompt">$</span> <span class="t-caret"></span></code></pre>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="container stats" aria-label="Highlights">
+      <dl class="stats-grid">
+        <div class="stat"><dt>Students using Instructli</dt><dd data-count="200" data-suffix="+">200+</dd></div>
+        <div class="stat"><dt>Records validated per run at GHN</dt><dd data-count="30000" data-suffix="+">30,000+</dd></div>
+        <div class="stat"><dt>Students supported as a TA</dt><dd data-count="250" data-suffix="+">250+</dd></div>
+        <div class="stat"><dt>Overall GPA (Math GPA 3.98)</dt><dd>3.83</dd></div>
+      </dl>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section container" id="about" aria-labelledby="about-title">
+      <header class="section-head">
+        <p class="section-num">01</p>
+        <h2 id="about-title">About</h2>
+      </header>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>I enjoy taking a feature all the way from <strong>proposal to production</strong>: designing the architecture, building the UI and API, writing the tests, and shipping it. At <strong>KinMeet</strong>, I proposed and owned image and voice messaging end to end. It uses direct-to-cloud signed uploads and server-side receipt checks, and it is covered by 76 automated tests.</p>
+          <p>My background spans the stack. I've hardened <strong>Firebase auth</strong> in a healthcare backend, run a <strong>RISC-V simulator</strong> headless behind a Django API for a tutoring tool used by 200+ students, and built <strong>data quality checks</strong> for Airflow pipelines covering 1,300+ tables.</p>
+          <p>I studied Computer Science and Applied Mathematics at UofT, made the Dean's List, and won the June Scott Award in Statistics. I've also TA'd seven CS and math courses, so I'm used to explaining complex ideas clearly.</p>
+        </div>
+        <ul class="focus-list" aria-label="What I focus on">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg><div><h3>Full-stack web</h3><p>React, Next.js, TypeScript, Node/Express, Django</p></div></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><div><h3>Mobile</h3><p>React Native, Expo, Firebase, Jest</p></div></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-db"/></svg><div><h3>Data engineering</h3><p>Airflow, PySpark, BigQuery, S3 / Redshift</p></div></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-brain"/></svg><div><h3>Applied AI</h3><p>RAG, LLM agents, PyTorch</p></div></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section container" id="experience" aria-labelledby="exp-title">
+      <header class="section-head">
+        <p class="section-num">02</p>
+        <h2 id="exp-title">Experience</h2>
+      </header>
+
+      <ol class="timeline">
+        <li class="job reveal">
+          <div class="job-meta">
+            <p class="job-date">Sep 2026 — Present</p>
+            <p class="job-loc">Toronto, ON</p>
+          </div>
+          <article class="job-card">
+            <h3>Full-Stack Software Engineer <span class="at">@ KinMeet</span></h3>
+            <p class="job-summary">A social app that connects people living abroad with others from their home country. I build features across React web, React Native mobile, and Node/Express + MongoDB APIs.</p>
+            <ul class="job-points">
+              <li><strong>Image &amp; voice messaging:</strong> I proposed and owned this end to end. Media uploads go straight to Cloudinary with signed requests, and the backend verifies upload receipts. The UI covers compression, waveform playback, upload progress, and retry. <span class="metric">76 tests</span></li>
+              <li><strong>Account deactivation:</strong> Deactivating or reactivating an account bumps a JWT <code>tokenVersion</code>, which revokes existing sessions. Enforcement is applied across <span class="metric">9 API routers</span></li>
+              <li><strong>Blocking &amp; reporting:</strong> Built the APIs and MongoDB models, plus backend enforcement across discovery, matching, and messaging.</li>
+            </ul>
+            <details class="more">
+              <summary>More details <svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+              <ul class="job-points">
+                <li>Built a four-step mobile registration flow with live username and email checks, photo upload, and country-first city search over <span class="metric">~150k cities</span>.</li>
+                <li>Built a swipe-style Discover screen with Pass and Meet actions, automatic batch loading, and built-in report and block flows.</li>
+                <li>Added live, case-insensitive username availability checks during registration.</li>
+                <li>Tested with Vitest, Playwright, Jest, and React Native Testing Library across the API, UI, and database layers.</li>
+              </ul>
+            </details>
+            <ul class="tags" aria-label="Technologies"><li>React</li><li>React Native</li><li>TypeScript</li><li>Node.js</li><li>MongoDB</li><li>Socket.IO</li><li>Cloudinary</li><li>Playwright</li></ul>
+          </article>
+        </li>
+
+        <li class="job reveal">
+          <div class="job-meta">
+            <p class="job-date">Sep 2026 — Present</p>
+            <p class="job-loc">Toronto, ON</p>
+          </div>
+          <article class="job-card">
+            <h3>AI Full-Stack Developer Intern <span class="at">@ Interact Health Pro</span></h3>
+            <p class="job-summary">I work on healthcare software: the Personal Injury Recovery and Concussion mobile apps and the services behind them.</p>
+            <ul class="job-points">
+              <li><strong>Auth hardening:</strong> Found a backend flow that trusted an email address sent by the client. Fixed it by adding Firebase <code>verifyIdToken()</code> middleware so protected routes check the token on the server, and return <code>401</code> when it's missing or invalid.</li>
+              <li>Built the UI/UX for the React Native Concussion app and helped deploy Personal Injury Recovery.</li>
+              <li>Contribute to code review, documentation, and full-stack debugging.</li>
+            </ul>
+            <ul class="tags" aria-label="Technologies"><li>React Native</li><li>TypeScript</li><li>Express.js</li><li>MongoDB</li><li>Firebase Auth</li></ul>
+          </article>
+        </li>
+
+        <li class="job reveal">
+          <div class="job-meta">
+            <p class="job-date">Sep 2025 — Dec 2025</p>
+            <p class="job-loc">UofT Capstone</p>
+          </div>
+          <article class="job-card">
+            <h3>Full-Stack Developer <span class="at">@ Instructli</span></h3>
+            <p class="job-summary">A web-based RISC-V processor tutor for CSC258. It visualizes datapaths and pipelines and includes an AI tutor and quizzes.</p>
+            <ul class="job-points">
+              <li>Integrated the <strong>Ripes</strong> simulator into a Django backend by running it headless with <code>xvfb-run</code>, then parsing its cycle, pipeline, and register output into JSON for D3 visualizations.</li>
+              <li>The visualizations show the five-stage pipeline (IF/ID/EX/MEM/WB), hazards, forwarding, stalls, and CPI/IPC.</li>
+              <li>The RAG tutor and LLM-generated quizzes are built on the OpenAI Responses API. <span class="metric">&gt;90% correctness</span> in our evaluation</li>
+              <li>Used by <span class="metric">200+ students</span>, with <span class="metric">1,000+ simulation runs</span>.</li>
+            </ul>
+            <ul class="tags" aria-label="Technologies"><li>Next.js</li><li>D3.js</li><li>Django REST</li><li>PostgreSQL</li><li>OpenAI API</li><li>RAG</li></ul>
+          </article>
+        </li>
+
+        <li class="job reveal">
+          <div class="job-meta">
+            <p class="job-date">May 2024 — Aug 2024</p>
+            <p class="job-loc">Ho Chi Minh City, VN</p>
+          </div>
+          <article class="job-card">
+            <h3>Data Engineer Intern <span class="at">@ GHN</span></h3>
+            <p class="job-summary">Worked on data quality, lineage, and metadata automation for a large logistics data platform.</p>
+            <ul class="job-points">
+              <li>Built automated Python/SQL data quality checks, wired into Airflow, that validate <span class="metric">30,000+ records per run</span>.</li>
+              <li>Used lineage across <span class="metric">1,300+ tables</span> to debug pipelines, cutting root-cause investigation time by <span class="metric">~60%</span>.</li>
+              <li>Optimized PySpark and query jobs for <span class="metric">~20% lower latency</span>.</li>
+              <li>Automated metadata and permission workflows with DataHub and GraphQL for ~7 teams, saving about <span class="metric">100+ hours/year</span> of manual work.</li>
+            </ul>
+            <ul class="tags" aria-label="Technologies"><li>Python</li><li>SQL</li><li>Airflow</li><li>PySpark</li><li>BigQuery</li><li>DataHub</li><li>GraphQL</li></ul>
+          </article>
+        </li>
+
+        <li class="job reveal">
+          <div class="job-meta">
+            <p class="job-date">Sep 2024 — Jun 2026</p>
+            <p class="job-loc">Mississauga, ON</p>
+          </div>
+          <article class="job-card">
+            <h3>Teaching Assistant <span class="at">@ University of Toronto</span></h3>
+            <p class="job-summary">Supported <span class="metric">250+ students</span> across 7 CS and math courses through grading, office hours, and invigilation.</p>
+            <ul class="tags" aria-label="Courses"><li>CSC236 Theory of Computation</li><li>CSC263 Data Structures</li><li>MAT302 Algebraic Cryptography</li><li>MAT223 Linear Algebra</li><li>MAT232 Multivariable Calculus</li><li>MAT135 / 136 Calculus</li></ul>
+          </article>
+        </li>
+      </ol>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section container" id="projects" aria-labelledby="proj-title">
+      <header class="section-head">
+        <p class="section-num">03</p>
+        <h2 id="proj-title">Projects</h2>
+      </header>
+
+      <div class="filters" role="group" aria-label="Filter projects">
+        <button class="chip is-active" data-filter="all" aria-pressed="true">All</button>
+        <button class="chip" data-filter="fullstack" aria-pressed="false">Full-stack</button>
+        <button class="chip" data-filter="data" aria-pressed="false">Data</button>
+        <button class="chip" data-filter="systems" aria-pressed="false">Systems</button>
+        <button class="chip" data-filter="ai" aria-pressed="false">AI / ML</button>
+      </div>
+
+      <ul class="project-grid" id="project-grid">
+        <li class="project featured reveal" data-cat="data">
+          <div class="project-top"><svg class="icon project-icon" aria-hidden="true"><use href="#i-cloud"/></svg><span class="project-kind">Data Engineering</span></div>
+          <h3>Weather Data Pipeline</h3>
+          <p>An hourly ETL pipeline orchestrated with Airflow. It lands raw data in an S3 bronze/silver data lake, curates it, and loads it into Redshift Serverless, with Great Expectations validating each run.</p>
+          <ul class="tags"><li>Airflow</li><li>AWS S3</li><li>Redshift</li><li>Great Expectations</li><li>Docker</li></ul>
+        </li>
+
+        <li class="project featured reveal" data-cat="systems">
+          <div class="project-top"><svg class="icon project-icon" aria-hidden="true"><use href="#i-cpu"/></svg><span class="project-kind">Systems · Quant</span></div>
+          <h3>Limit Order Book Simulator</h3>
+          <p>A C++ matching engine with Python bindings via pybind11. It supports limit, market, and hidden orders and cancellations, and computes microstructure metrics: Kyle's λ, Roll spread, and Amihud illiquidity.</p>
+          <p class="project-metric"><strong>~1.5M</strong> cancels/s · <strong>~1.2M</strong> submits/s</p>
+          <ul class="tags"><li>C++</li><li>Python</li><li>pybind11</li></ul>
+        </li>
+
+        <li class="project reveal" data-cat="ai fullstack">
+          <div class="project-top"><svg class="icon project-icon" aria-hidden="true"><use href="#i-brain"/></svg><span class="project-kind">AI Agent</span></div>
+          <h3>Autonomous Web Form Agent</h3>
+          <p>An LLM-driven browser agent that runs an observe → decide → act → verify loop. It keeps state across steps, validates inputs and outputs with Zod, and recovers from failed actions by retrying.</p>
+          <ul class="tags"><li>TypeScript</li><li>Playwright</li><li>Gemini</li><li>Zod</li></ul>
+        </li>
+
+        <li class="project reveal" data-cat="systems">
+          <div class="project-top"><svg class="icon project-icon" aria-hidden="true"><use href="#i-cpu"/></svg><span class="project-kind">Operating Systems</span></div>
+          <h3>Pintos OS</h3>
+          <p>Kernel work in C: system calls, virtual memory with supplemental page tables, swapping with clock eviction, <code>mmap</code>/<code>munmap</code>, directories, and double-indirect disk blocks.</p>
+          <ul class="tags"><li>C</li><li>Virtual Memory</li><li>File Systems</li></ul>
+        </li>
+
+        <li class="project reveal" data-cat="ai">
+          <div class="project-top"><svg class="icon project-icon" aria-hidden="true"><use href="#i-brain"/></svg><span class="project-kind">Deep Learning</span></div>
+          <h3>Multimodal Sentiment Analysis</h3>
+          <p>A transformer that fuses text, audio, and visual features with cross-modal attention, trained on CMU-MOSEI (~11.5k utterances).</p>
+          <p class="project-metric"><strong>93.26%</strong> weighted accuracy</p>
+          <ul class="tags"><li>PyTorch</li><li>Transformers</li><li>Cross-attention</li></ul>
+        </li>
+
+        <li class="project reveal" data-cat="fullstack">
+          <div class="project-top"><svg class="icon project-icon" aria-hidden="true"><use href="#i-code"/></svg><span class="project-kind">Backend</span></div>
+          <h3>TABI Marketplace</h3>
+          <p>Backend for a services marketplace, built in a three-person team: auth, booking workflows, and REST APIs on Firebase and Firestore, with a GitHub Actions pipeline that saves ~15 minutes per release.</p>
+          <ul class="tags"><li>Node.js</li><li>Express</li><li>Firestore</li><li>Docker</li><li>GitHub Actions</li></ul>
+        </li>
+
+        <li class="project reveal" data-cat="fullstack">
+          <div class="project-top"><svg class="icon project-icon" aria-hidden="true"><use href="#i-code"/></svg><span class="project-kind">Web App</span></div>
+          <h3>Flight &amp; Hotel Booking</h3>
+          <p>A responsive travel search and booking app built with Next.js, backed by PostgreSQL through Prisma.</p>
+          <ul class="tags"><li>Next.js</li><li>React</li><li>Prisma</li><li>PostgreSQL</li><li>Tailwind</li></ul>
+        </li>
+
+        <li class="project reveal" data-cat="fullstack systems">
+          <div class="project-top"><svg class="icon project-icon" aria-hidden="true"><use href="#i-code"/></svg><span class="project-kind">Math · Crypto</span></div>
+          <h3>Algebraic Cryptography Toolkit</h3>
+          <p>Number theory and cryptography utilities served through a Flask API. Optimizing the core algorithms cut runtime by about 80%.</p>
+          <p class="project-metric"><strong>~80%</strong> faster runtime</p>
+          <ul class="tags"><li>Python</li><li>Flask</li><li>AWS EC2</li></ul>
+        </li>
+      </ul>
+      <p class="more-link"><a href="https://github.com/nguyennvk" target="_blank" rel="noopener">See more on GitHub <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section container" id="skills" aria-labelledby="skills-title">
+      <header class="section-head">
+        <p class="section-num">04</p>
+        <h2 id="skills-title">Skills</h2>
+      </header>
+      <div class="skills-grid">
+        <div class="skill-group reveal"><h3>Languages</h3><ul class="tags"><li>TypeScript</li><li>JavaScript</li><li>Python</li><li>SQL</li><li>C++</li><li>C</li><li>Java</li><li>HTML/CSS</li></ul></div>
+        <div class="skill-group reveal"><h3>Frontend &amp; Mobile</h3><ul class="tags"><li>React</li><li>Next.js</li><li>React Native</li><li>Expo</li><li>Tailwind CSS</li><li>D3.js</li></ul></div>
+        <div class="skill-group reveal"><h3>Backend &amp; APIs</h3><ul class="tags"><li>Node.js</li><li>Express</li><li>Django / DRF</li><li>Flask</li><li>REST</li><li>GraphQL</li><li>Socket.IO</li><li>JWT</li><li>Firebase Auth</li></ul></div>
+        <div class="skill-group reveal"><h3>Data &amp; Databases</h3><ul class="tags"><li>PostgreSQL</li><li>MongoDB</li><li>Prisma</li><li>Firestore</li><li>BigQuery</li><li>Airflow</li><li>PySpark</li><li>Redshift</li><li>Great Expectations</li><li>DataHub</li></ul></div>
+        <div class="skill-group reveal"><h3>Cloud &amp; DevOps</h3><ul class="tags"><li>AWS (S3, Redshift, EC2)</li><li>GCP</li><li>Docker</li><li>GitHub Actions</li><li>Linux</li><li>Vercel</li><li>Nginx</li></ul></div>
+        <div class="skill-group reveal"><h3>AI &amp; Testing</h3><ul class="tags"><li>RAG</li><li>OpenAI API</li><li>LLM Agents</li><li>PyTorch</li><li>Vitest</li><li>Jest</li><li>Playwright</li><li>RN Testing Library</li></ul></div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="section container" id="education" aria-labelledby="edu-title">
+      <header class="section-head">
+        <p class="section-num">05</p>
+        <h2 id="edu-title">Education</h2>
+      </header>
+      <article class="edu-card reveal">
+        <svg class="icon edu-icon" aria-hidden="true"><use href="#i-cap"/></svg>
+        <div class="edu-body">
+          <h3>University of Toronto Mississauga</h3>
+          <p class="edu-degree">Honours B.Sc. — Computer Science Specialist &amp; Applied Mathematics Major</p>
+          <p class="edu-date">Sep 2022 — Jun 2026</p>
+          <ul class="edu-stats">
+            <li><strong>3.83</strong><span>Overall GPA</span></li>
+            <li><strong>3.98</strong><span>Math GPA</span></li>
+            <li><strong>Dean's List</strong><span>Honour</span></li>
+            <li><strong>June Scott</strong><span>Award in Statistics</span></li>
+          </ul>
+          <p class="edu-courses-label">Relevant coursework</p>
+          <ul class="tags"><li>Machine Learning (92)</li><li>Deep Learning</li><li>Computer Networks</li><li>Web Programming</li><li>Computer Organization</li><li>Operating Systems</li><li>Databases</li><li>Theory of Computation</li><li>Data Structures &amp; Analysis</li></ul>
+        </div>
+      </article>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section container contact" id="contact" aria-labelledby="contact-title">
+      <p class="section-num">06</p>
+      <h2 id="contact-title">Let's build something.</h2>
+      <p class="lede">I'm open to software engineering roles in full-stack, backend, and data. The fastest way to reach me is email.</p>
+      <div class="contact-actions">
+        <a class="btn btn-primary" href="mailto:khoinguyen29012004.ca@gmail.com"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg> Email me</a>
+        <button class="btn btn-ghost" id="copy-email" data-email="khoinguyen29012004.ca@gmail.com"><svg class="icon" aria-hidden="true"><use href="#i-copy"/></svg> <span>Copy email</span></button>
+      </div>
+      <ul class="contact-links">
+        <li><a href="https://github.com/nguyennvk" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg> github.com/nguyennvk</a></li>
+        <li><a href="https://www.linkedin.com/in/khoi-nguyen-nguyen-vo" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg> in/khoi-nguyen-nguyen-vo</a></li>
+        <li><span><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg> Toronto, Ontario</span></li>
+      </ul>
+      <p class="sr-only" role="status" aria-live="polite" id="copy-status"></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year">2026</span> Khoi Nguyen</p>
+      <a href="#hero" class="back-top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
