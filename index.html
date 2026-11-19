@@ -6,6 +6,23 @@
   <title>Khoi Nguyen — Software Engineer</title>
   <meta name="description" content="Khoi Nguyen — full-stack and data engineer in Toronto. React, React Native, Node.js, Django, Airflow, and cloud data pipelines." />
   <meta name="theme-color" content="#0F172A" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230F172A'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-family='monospace' font-weight='700' font-size='30' fill='%2322C55E'%3EKN%3C/text%3E%3C/svg%3E" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Khoi Nguyen — Software Engineer" />
+  <meta property="og:description" content="Full-stack and data engineer in Toronto. React, React Native, Node.js, Django, Airflow, and cloud data pipelines." />
+  <meta name="twitter:card" content="summary" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Khoi Nguyen",
+    "jobTitle": "Software Engineer",
+    "address": { "@type": "PostalAddress", "addressLocality": "Toronto", "addressRegion": "ON", "addressCountry": "CA" },
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "University of Toronto Mississauga" },
+    "sameAs": ["https://github.com/nguyennvk", "https://www.linkedin.com/in/khoi-nguyen-nguyen-vo"],
+    "knowsAbout": ["React", "React Native", "TypeScript", "Node.js", "Django", "Apache Airflow", "PySpark", "Data Engineering"]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -33,6 +50,10 @@
     <symbol id="i-brain" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M12 5v13"/></g></symbol>
     <symbol id="i-cloud" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></symbol>
     <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></g></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 19V5M5 12l7-7 7 7"/></symbol>
+    <symbol id="i-hash" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 9h16M4 15h16M10 3 8 21M16 3l-2 18"/></symbol>
+    <symbol id="i-ext" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></g></symbol>
     <symbol id="i-cap" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></g></symbol>
   </svg>
 
@@ -41,12 +62,18 @@
       <a href="#hero" class="brand" aria-label="Khoi Nguyen — home">
         <span class="brand-mark">KN</span><span class="brand-cursor" aria-hidden="true">_</span>
       </a>
+      <div class="nav-right">
+      <button class="kbar-trigger" type="button" aria-label="Open command palette" aria-haspopup="dialog">
+        <svg class="icon" aria-hidden="true"><use href="#i-search"/></svg><span class="kbar-label">Search</span><kbd class="kbd-hint">⌘K</kbd>
+      </button>
       <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
         <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg>
       </button>
+      </div>
       <ul class="nav-links" id="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#experience">Experience</a></li>
+        <li><a href="#deep-dives">Deep dives</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#education">Education</a></li>
@@ -223,10 +250,99 @@
       </ol>
     </section>
 
+    <!-- DEEP DIVES -->
+    <section class="section container" id="deep-dives" aria-labelledby="deep-title">
+      <header class="section-head">
+        <p class="section-num">03</p>
+        <h2 id="deep-title">Deep dives</h2>
+      </header>
+      <p class="section-intro">How three pieces of my work are built: the problem, the architecture, and the trade-offs.</p>
+
+      <div class="tabs" role="tablist" aria-label="Case studies">
+        <button class="tab" role="tab" id="tab-media" aria-controls="panel-media" aria-selected="true" tabindex="0">
+          <span class="tab-co">KinMeet</span><span class="tab-name">Image &amp; voice messaging</span>
+        </button>
+        <button class="tab" role="tab" id="tab-sim" aria-controls="panel-sim" aria-selected="false" tabindex="-1">
+          <span class="tab-co">Instructli</span><span class="tab-name">RISC-V simulator in the browser</span>
+        </button>
+        <button class="tab" role="tab" id="tab-dq" aria-controls="panel-dq" aria-selected="false" tabindex="-1">
+          <span class="tab-co">GHN</span><span class="tab-name">Data quality &amp; lineage</span>
+        </button>
+      </div>
+
+      <div class="tab-panel" role="tabpanel" id="panel-media" aria-labelledby="tab-media" tabindex="0">
+        <div class="case-grid">
+          <div class="case-text">
+            <h3>The problem</h3>
+            <p>Users could only send text. Adding photos and voice notes meant handling large, slow uploads on mobile networks, without turning our Node server into a media proxy and without trusting whatever metadata the client sent.</p>
+            <h3>Key decisions</h3>
+            <ul class="decisions">
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Direct-to-cloud uploads.</strong> Clients upload straight to Cloudinary with server-signed parameters, so full files never pass through our API.</span></li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Verify, don't trust.</strong> The backend checks the upload receipt before it creates a message, so a client can't attach arbitrary URLs.</span></li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Designed for failure.</strong> Upload progress, error states, and retry make slow or dropped connections recoverable.</span></li>
+            </ul>
+            <p class="case-outcome"><span class="metric">76 tests</span> across backend and frontend · I proposed, built, and shipped it end to end</p>
+          </div>
+          <ol class="flow" aria-label="Upload flow">
+            <li><span class="flow-step">1</span><div><h4>Capture</h4><p>Pick and compress an image, or record a voice note with a live waveform</p></div><span class="flow-tag">React / RN</span></li>
+            <li><span class="flow-step">2</span><div><h4>Sign</h4><p>An authenticated request gets signed upload parameters</p></div><span class="flow-tag">Express</span></li>
+            <li><span class="flow-step">3</span><div><h4>Upload</h4><p>The client uploads directly to the cloud, showing progress and retrying on failure</p></div><span class="flow-tag">Cloudinary</span></li>
+            <li><span class="flow-step">4</span><div><h4>Verify</h4><p>The server validates the upload receipt before it accepts the message</p></div><span class="flow-tag">Express</span></li>
+            <li><span class="flow-step">5</span><div><h4>Deliver</h4><p>The message is saved and pushed to the recipient in real time</p></div><span class="flow-tag">MongoDB · Socket.IO</span></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="tab-panel" role="tabpanel" id="panel-sim" aria-labelledby="tab-sim" tabindex="0" hidden>
+        <div class="case-grid">
+          <div class="case-text">
+            <h3>The problem</h3>
+            <p>CSC258 students struggle to picture how instructions move through a pipelined CPU. Ripes is a great simulator, but it's a desktop GUI app, and we needed its output on the web for hundreds of students.</p>
+            <h3>Key decisions</h3>
+            <ul class="decisions">
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Run the GUI headless.</strong> <code>xvfb-run</code> gives Ripes a virtual display so it can run as a server process behind Django.</span></li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Normalize to JSON.</strong> The backend parses cycle, pipeline, and register output into a structured trace that the frontend can step through.</span></li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Grounded AI tutor.</strong> RAG over course material keeps the chatbot's answers and generated quizzes tied to what the course actually teaches.</span></li>
+            </ul>
+            <p class="case-outcome"><span class="metric">200+ students</span> <span class="metric">1,000+ runs</span> <span class="metric">&gt;90% AI correctness</span></p>
+          </div>
+          <ol class="flow" aria-label="Simulation flow">
+            <li><span class="flow-step">1</span><div><h4>Write</h4><p>The student writes a RISC-V program in the browser</p></div><span class="flow-tag">Next.js</span></li>
+            <li><span class="flow-step">2</span><div><h4>Request</h4><p>The program is sent to <code>/api/processor/run</code> with a JWT</p></div><span class="flow-tag">Django REST</span></li>
+            <li><span class="flow-step">3</span><div><h4>Simulate</h4><p>Ripes runs headless on Linux</p></div><span class="flow-tag">xvfb-run</span></li>
+            <li><span class="flow-step">4</span><div><h4>Parse</h4><p>The output becomes a cycle-by-cycle JSON trace</p></div><span class="flow-tag">Python</span></li>
+            <li><span class="flow-step">5</span><div><h4>Visualize</h4><p>The datapath and IF→WB pipeline are drawn with hazards, stalls, and CPI</p></div><span class="flow-tag">D3.js</span></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="tab-panel" role="tabpanel" id="panel-dq" aria-labelledby="tab-dq" tabindex="0" hidden>
+        <div class="case-grid">
+          <div class="case-text">
+            <h3>The problem</h3>
+            <p>With 1,300+ tables and many Airflow pipelines owned by different teams, bad data was often caught late, and finding where it came from meant tracing dependencies by hand.</p>
+            <h3>Key decisions</h3>
+            <ul class="decisions">
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Checks inside the pipeline.</strong> Python/SQL validations run as Airflow tasks, so problems surface when data lands instead of in downstream reports.</span></li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Lineage-first debugging.</strong> DataHub lineage turns "which upstream table broke?" into a graph lookup.</span></li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Automate the busywork.</strong> GraphQL scripts handle metadata and permission updates for about seven teams.</span></li>
+            </ul>
+            <p class="case-outcome"><span class="metric">~60% faster RCA</span> <span class="metric">~20% lower latency</span> <span class="metric">100+ hrs/yr saved</span></p>
+          </div>
+          <ol class="flow" aria-label="Data quality flow">
+            <li><span class="flow-step">1</span><div><h4>Ingest</h4><p>An Airflow DAG loads and transforms the batch</p></div><span class="flow-tag">Airflow</span></li>
+            <li><span class="flow-step">2</span><div><h4>Validate</h4><p>Automated checks run on 30,000+ records per run</p></div><span class="flow-tag">Python · SQL</span></li>
+            <li><span class="flow-step">3</span><div><h4>Trace</h4><p>On failure, lineage across 1,300+ tables shows the upstream source</p></div><span class="flow-tag">DataHub</span></li>
+            <li><span class="flow-step">4</span><div><h4>Optimize</h4><p>Slow transformations are tuned to cut latency</p></div><span class="flow-tag">PySpark · BigQuery</span></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
     <!-- PROJECTS -->
     <section class="section container" id="projects" aria-labelledby="proj-title">
       <header class="section-head">
-        <p class="section-num">03</p>
+        <p class="section-num">04</p>
         <h2 id="proj-title">Projects</h2>
       </header>
 
@@ -304,7 +420,7 @@
     <!-- SKILLS -->
     <section class="section container" id="skills" aria-labelledby="skills-title">
       <header class="section-head">
-        <p class="section-num">04</p>
+        <p class="section-num">05</p>
         <h2 id="skills-title">Skills</h2>
       </header>
       <div class="skills-grid">
@@ -320,7 +436,7 @@
     <!-- EDUCATION -->
     <section class="section container" id="education" aria-labelledby="edu-title">
       <header class="section-head">
-        <p class="section-num">05</p>
+        <p class="section-num">06</p>
         <h2 id="edu-title">Education</h2>
       </header>
       <article class="edu-card reveal">
@@ -343,7 +459,7 @@
 
     <!-- CONTACT -->
     <section class="section container contact" id="contact" aria-labelledby="contact-title">
-      <p class="section-num">06</p>
+      <p class="section-num">07</p>
       <h2 id="contact-title">Let's build something.</h2>
       <p class="lede">I'm open to software engineering roles in full-stack, backend, and data. The fastest way to reach me is email.</p>
       <div class="contact-actions">
@@ -365,6 +481,21 @@
       <a href="#hero" class="back-top">Back to top ↑</a>
     </div>
   </footer>
+
+  <a href="#hero" class="to-top" aria-label="Back to top"><svg class="icon" aria-hidden="true"><use href="#i-up"/></svg></a>
+
+  <dialog class="kbar" id="kbar" aria-label="Command palette">
+    <div class="kbar-box">
+      <div class="kbar-input-wrap">
+        <svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>
+        <input id="kbar-input" type="text" placeholder="Jump to a section or link…" autocomplete="off" spellcheck="false"
+               role="combobox" aria-expanded="true" aria-controls="kbar-list" aria-label="Search commands" />
+        <kbd>Esc</kbd>
+      </div>
+      <ul class="kbar-list" id="kbar-list" role="listbox" aria-label="Commands"></ul>
+      <p class="kbar-foot"><kbd>↑</kbd><kbd>↓</kbd> to navigate · <kbd>↵</kbd> to select</p>
+    </div>
+  </dialog>
 
   <script src="script.js" defer></script>
 </body>

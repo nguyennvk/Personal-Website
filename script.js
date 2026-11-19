@@ -25,10 +25,12 @@
   // Header border + scroll progress
   const header = document.querySelector('.site-header');
   const progress = document.querySelector('.scroll-progress');
+  const toTop = document.querySelector('.to-top');
   let ticking = false;
   const onScroll = () => {
     const y = window.scrollY;
     header.classList.toggle('scrolled', y > 8);
+    toTop?.classList.toggle('show', y > window.innerHeight * 1.2);
     const max = doc.scrollHeight - window.innerHeight;
     progress.style.transform = `scaleX(${max > 0 ? y / max : 0})`;
     revealVisible();
@@ -36,7 +38,7 @@
   };
   window.addEventListener('scroll', () => { if (!ticking) { requestAnimationFrame(onScroll); ticking = true; } }, { passive: true });
   window.addEventListener('resize', () => requestAnimationFrame(onScroll));
-  window.addEventListener('load', onScroll);
+  window.addEventListener('load', () => { onScroll(); setTimeout(onScroll, 700); });
 
   // Scroll-spy
   const navAnchors = [...document.querySelectorAll('.nav-links a[href^="#"]')];
@@ -125,4 +127,110 @@
     }
     setTimeout(() => { label.textContent = 'Copy email'; status.textContent = ''; }, 2000);
   });
+
+  // Case-study tabs (WAI-ARIA tabs pattern)
+  const tabs = [...document.querySelectorAll('[role="tab"]')];
+  const selectTab = (tab, focus = true) => {
+    tabs.forEach((t) => {
+      const on = t === tab;
+      t.setAttribute('aria-selected', String(on));
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+    if (focus) tab.focus();
+  };
+  tabs.forEach((tab, i) => {
+    tab.addEventListener('click', () => selectTab(tab, false));
+    tab.addEventListener('keydown', (e) => {
+      const keys = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 };
+      if (e.key in keys) { e.preventDefault(); selectTab(tabs[(i + keys[e.key] + tabs.length) % tabs.length]); }
+      else if (e.key === 'Home') { e.preventDefault(); selectTab(tabs[0]); }
+      else if (e.key === 'End') { e.preventDefault(); selectTab(tabs[tabs.length - 1]); }
+    });
+  });
+
+  // Command palette (Cmd/Ctrl+K or "/")
+  const kbar = document.getElementById('kbar');
+  const kInput = document.getElementById('kbar-input');
+  const kList = document.getElementById('kbar-list');
+  const contactAddr = copyBtn?.dataset.email || '';
+  const goTo = (id) => () => document.getElementById(id)?.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
+  const openUrl = (url) => () => window.open(url, '_blank', 'noopener');
+  const showCase = (tabId) => () => { selectTab(document.getElementById(tabId), false); goTo('deep-dives')(); };
+  const commands = [
+    { group: 'Sections', label: 'About', icon: 'i-hash', run: goTo('about') },
+    { group: 'Sections', label: 'Experience', icon: 'i-hash', run: goTo('experience') },
+    { group: 'Sections', label: 'Deep dives — case studies', icon: 'i-hash', run: goTo('deep-dives') },
+    { group: 'Sections', label: 'Projects', icon: 'i-hash', run: goTo('projects') },
+    { group: 'Sections', label: 'Skills', icon: 'i-hash', run: goTo('skills') },
+    { group: 'Sections', label: 'Education', icon: 'i-hash', run: goTo('education') },
+    { group: 'Sections', label: 'Contact', icon: 'i-hash', run: goTo('contact') },
+    { group: 'Case studies', label: 'KinMeet — image & voice messaging', icon: 'i-code', run: showCase('tab-media') },
+    { group: 'Case studies', label: 'Instructli — RISC-V simulator', icon: 'i-cpu', run: showCase('tab-sim') },
+    { group: 'Case studies', label: 'GHN — data quality & lineage', icon: 'i-db', run: showCase('tab-dq') },
+    { group: 'Links', label: 'GitHub', hint: 'nguyennvk', icon: 'i-github', run: openUrl('https://github.com/nguyennvk') },
+    { group: 'Links', label: 'LinkedIn', hint: 'khoi-nguyen-nguyen-vo', icon: 'i-linkedin', run: openUrl('https://www.linkedin.com/in/khoi-nguyen-nguyen-vo') },
+    { group: 'Links', label: 'Send an email', icon: 'i-mail', run: () => { window.location.href = 'mailto:' + contactAddr; } },
+    { group: 'Links', label: 'Copy email address', icon: 'i-copy', run: () => navigator.clipboard?.writeText(contactAddr) },
+  ];
+  let filtered = commands;
+  let activeIdx = 0;
+  const updateActive = () => {
+    kList.querySelectorAll('.kbar-item').forEach((el) => el.setAttribute('aria-selected', String(el.id === `kbar-opt-${activeIdx}`)));
+    const el = document.getElementById(`kbar-opt-${activeIdx}`);
+    if (el) { kInput.setAttribute('aria-activedescendant', el.id); el.scrollIntoView({ block: 'nearest' }); }
+  };
+  const renderK = () => {
+    const q = kInput.value.trim().toLowerCase();
+    filtered = commands.filter((c) => `${c.label} ${c.group} ${c.hint || ''}`.toLowerCase().includes(q));
+    activeIdx = Math.min(activeIdx, Math.max(filtered.length - 1, 0));
+    kList.innerHTML = '';
+    if (!filtered.length) {
+      kList.innerHTML = '<li class="kbar-empty" role="presentation">No results</li>';
+      kInput.removeAttribute('aria-activedescendant');
+      return;
+    }
+    let lastGroup = '';
+    filtered.forEach((c, i) => {
+      if (c.group !== lastGroup) {
+        const g = document.createElement('li');
+        g.className = 'kbar-group'; g.setAttribute('role', 'presentation'); g.textContent = c.group;
+        kList.appendChild(g); lastGroup = c.group;
+      }
+      const li = document.createElement('li');
+      li.className = 'kbar-item'; li.id = `kbar-opt-${i}`; li.setAttribute('role', 'option');
+      li.innerHTML = `<svg class="icon" aria-hidden="true"><use href="#${c.icon}"/></svg><span></span>${c.hint ? '<span class="kbar-hint"></span>' : ''}`;
+      li.querySelector('span').textContent = c.label;
+      if (c.hint) li.querySelector('.kbar-hint').textContent = c.hint;
+      li.addEventListener('mousemove', () => { if (activeIdx !== i) { activeIdx = i; updateActive(); } });
+      li.addEventListener('click', () => runK(i));
+      kList.appendChild(li);
+    });
+    updateActive();
+  };
+  const openK = () => {
+    if (kbar.open) return;
+    setMenu(false);
+    kInput.value = ''; activeIdx = 0; renderK();
+    kbar.showModal(); kInput.focus();
+  };
+  const closeK = () => { if (kbar.open) kbar.close(); };
+  const runK = (i) => { const c = filtered[i]; closeK(); c?.run(); };
+
+  document.querySelector('.kbar-trigger')?.addEventListener('click', openK);
+  document.addEventListener('keydown', (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); kbar.open ? closeK() : openK(); }
+    else if (e.key === '/' && !kbar.open && !/input|textarea/i.test(document.activeElement.tagName)) { e.preventDefault(); openK(); }
+  });
+  kInput.addEventListener('input', () => { activeIdx = 0; renderK(); });
+  kInput.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown') { e.preventDefault(); if (filtered.length) { activeIdx = (activeIdx + 1) % filtered.length; updateActive(); } }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); if (filtered.length) { activeIdx = (activeIdx - 1 + filtered.length) % filtered.length; updateActive(); } }
+    else if (e.key === 'Enter') { e.preventDefault(); runK(activeIdx); }
+  });
+  kbar.addEventListener('click', (e) => { if (e.target === kbar) closeK(); });
+
+  if (!/Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent)) {
+    document.querySelectorAll('.kbd-hint').forEach((k) => { k.textContent = 'Ctrl K'; });
+  }
 })();
